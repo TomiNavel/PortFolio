@@ -9,7 +9,7 @@ import {
   EyeIcon,
   DocumentTextIcon,
 } from "@heroicons/react/24/solid";
-import SkillCard from "../components/skill-card";
+import SkillCard from "../components/skill-card.jsx";
 
 const SKILLS = [
   {
@@ -52,18 +52,15 @@ const SKILLS = [
 
 const Skills = () => {
   return (
-    <section className="bg-white px-8 py-16">
-      <div className="container mx-auto mb-20 text-center">
-        <Typography className="text-gray-800 font-bold mb-4 lg:text-5xl !leading-tight text-3xl">
-          Mis habilidades
-        </Typography>
-        <Typography className="text-gray-800 font-bold mb-4 lg:text-4xl !leading-tight text-2xl">
-          ¿Qué hago?
+    <section className="bg-white px-8 py-8">
+      <div className="container mx-auto text-center">
+        <Typography variant="h2" color="blue-gray" className="mb-4">
+          Habilidades
         </Typography>
         <Typography
-          className="mx-auto w-full !text-gray-500 lg:w-10/12"
-        >
-          Más que un desarrollador, me especializo en transformar ideas en soluciones digitales efectivas. Descubre cómo puedo aportar valor a tu proyecto.
+          variant="lead"
+          className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12">
+          Más que desarrollar software, me especializo en transformar ideas en soluciones digitales efectivas. Descubre cómo puedo aportar valor a tu proyecto.
         </Typography>
       </div>
       <div className="container mx-auto grid grid-cols-1 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
