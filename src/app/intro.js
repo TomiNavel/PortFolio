@@ -5,8 +5,8 @@ import { Typography } from "@material-tailwind/react";
 
 const Intro = () => {
   return (
-    <header id="intro" className="bg-white p-8">
-      <div className="container mx-auto grid h-full gap-10 min-h-[60vh] w-full grid-cols-1 items-center lg:grid-cols-2">
+    <header id="intro" className="bg-gradient-to-r from-gray-100 to-white p-8">
+      <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center justify-between gap-10 min-h-[60vh]">
         <div className="row-start-2 lg:row-auto">
           <Typography
             variant="h1"
@@ -27,12 +27,13 @@ const Intro = () => {
           </Typography>
         </div>
         <Image
-          width={1024}
-          height={1024}
+          width={512}
+          height={512}
           alt="logo"
           src="/images/logo.jpg"
-          className="h-[30rem] w-3/4 rounded-xl object-cover mx-auto"
+          className="h-[12rem] w-1/3 rounded-xl object-cover mx-auto transition-transform duration-500 ease-in-out hover:scale-105"
         />
+
       </div>
     </header>
   );

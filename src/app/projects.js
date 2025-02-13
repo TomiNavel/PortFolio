@@ -2,33 +2,33 @@
 
 import { Typography } from "@material-tailwind/react";
 import ProjectCard from "../components/project-card";
-
-const PROJECTS = [
-  {
-    img: "/images/project1.jpg",
-    title: "Aplicación móvil",
-    desc: "Diseñada para conectarse a una api y consultar datos TPV.",
-  },
-  {
-    img: "/images/project2.svg",
-    title: "PuntoVentaCloud",
-    desc: "Aplicación Web o de escritorio que actúa como TPV con base de datos en la nube.",
-  },
-  {
-    img: "/images/project3.svg",
-    title: "ScanReport",
-    desc: "Aplicación web que permite crear informes de seguridad automatizados.",
-  },
-  {
-    img: "/images/project4.svg",
-    title: "OposiTests",
-    desc: "Aplicación web que permite resolver preguntas y hacer exámenes de diversas oposiciones.",
-  },
-];
+import { useEffect, useState } from "react";
 
 export function Projects() {
+  const [proyectos, setProyectos] = useState([]);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProyectos = async () => {
+      try {
+        const response = await fetch("/api/proyectos");
+        if (!response.ok) throw new Error("Error al obtener proyectos");
+        const data = await response.json();
+        setProyectos(data);
+      } catch (err) {
+        console.error("Error al cargar proyectos:", err);
+        setError("No se pudo cargar la información de los proyectos.");
+      }
+    };
+
+    fetchProyectos();
+  }, []);
+
+  if (error) return <p className="text-center text-red-500 text-xl">{error}</p>;
+  if (!proyectos.length) return <p className="text-center text-gray-500 text-xl">Cargando proyectos...</p>;
+
   return (
-    <section id="projects" className="py-8 px-8">
+    <section id="projects" className="bg-gradient-to-r from-gray-100 to-white p-8">
       <div className="container mx-auto mb-20 text-center">
         <Typography variant="h2" color="blue-gray" className="mb-4">
           Proyectos
@@ -36,13 +36,21 @@ export function Projects() {
         <Typography
           variant="lead"
           className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12">
-          Desde aplicaciones y desarrollo web hasta sistemas backend eficientes,
-          transformo ideas en soluciones digitales funcionales.
+          Aquí encontrarás algunos de los proyectos en los que he trabajado,
+          donde aplico diversas tecnologías para crear soluciones funcionales y optimizadas.
+          Me centro en la arquitectura del código, el rendimiento y la escalabilidad,
+          siempre buscando que cada desarrollo sea sólido y fácil de mantener.
         </Typography>
       </div>
       <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">
-        {PROJECTS.map((props, idx) => (
-          <ProjectCard key={idx} {...props} />
+        {proyectos.map(({ id, imagenDesktop, titulo, descripcion }, idx) => (
+          <ProjectCard
+            key={idx}
+            id={id}
+            img={imagenDesktop}
+            title={titulo}
+            desc={descripcion}
+          />
         ))}
       </div>
     </section>
