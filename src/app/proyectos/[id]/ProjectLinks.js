@@ -1,14 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 
 const ProjectLinks = ({ enlaces, titulo }) => {
+    const router = useRouter();
+
     if (!enlaces) return null;
 
     const handleRequestCode = () => {
-        if (!titulo) return;
-        const message = encodeURIComponent(`Hola, me gustaría solicitar acceso al código fuente de ${titulo}. ¿Podrías proporcionarme más detalles?`);
-        window.open(`/?mensaje=${message}#contact`);
+        const predefinedMessage = `Hola, estoy interesado en el código fuente del proyecto: ${titulo}`;
+        router.push(`/?mensaje=${encodeURIComponent(predefinedMessage)}#contact`);
     };
 
     return (
@@ -33,8 +35,6 @@ const ProjectLinks = ({ enlaces, titulo }) => {
                 {enlaces.repositorio && (
                     <motion.button
                         onClick={handleRequestCode}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: 0.2 }}

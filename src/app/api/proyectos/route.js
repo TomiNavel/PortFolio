@@ -39,7 +39,7 @@ export async function GET() {
                 "Desplegado en un VPS con Docker"
             ],
             enlaces: {
-                demo: "https://cuartoymita.com",
+                demo: "https://www.cuartoymita.com",
                 repositorio: "https://github.com/usuario/cuartoymita",
             },
         },
@@ -81,7 +81,7 @@ export async function GET() {
                 monitorizacion: []
             },
             enlaces: {
-                demo: "https://tominavel.com",
+                demo: "https://www.tominavel.com",
                 repositorio: "https://github.com/usuario/tominavel"
             }
         },
@@ -201,7 +201,7 @@ export async function GET() {
                 monitorizacion: []
             },
             enlaces: {
-                demo: "https://tominavel.com/downloads/pvcmovil.apk",
+                demo: "/downloads/pvcmovil.apk",
                 repositorio: "https://gitlab.com/usuario/pvc-movil"
             }
         }

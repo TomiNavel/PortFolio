@@ -1,5 +1,6 @@
 "use client";
 
+import { navigateToSection } from "@/app/utils/navigation";
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
@@ -30,36 +31,11 @@ function NavItem({ children, href }) {
   const pathname = usePathname();
   const router = useRouter();
 
-  const handleClick = (event) => {
-    event.preventDefault();
-    const targetId = href.replace("#", "");
-
-    if (pathname === "/") {
-      // Si estamos en la página principal, hacer scroll con delay para asegurar que el DOM está listo
-      setTimeout(() => {
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300);
-    } else {
-      // Si estamos en otra página, redirigir a la home y luego hacer scroll
-      router.push(`/${href}`);
-
-      setTimeout(() => {
-        const target = document.getElementById(targetId);
-        if (target) {
-          target.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 500);
-    }
-  };
-
   return (
     <li>
       <Typography
         as="span"
-        onClick={handleClick}
+        onClick={(e) => navigateToSection(e, href, pathname, router)}
         variant="paragraph"
         color="gray"
         className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer"
