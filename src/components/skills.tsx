@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Typography } from "@material-tailwind/react";
+import SkillCard from "@/components/skill-card";
+import type { Skill } from "@/types/types";
 import {
   RectangleGroupIcon,
   CodeBracketIcon,
@@ -13,13 +15,10 @@ import {
   CubeTransparentIcon,
   CloudIcon,
   ShieldCheckIcon,
-  EyeIcon
+  EyeIcon,
 } from "@heroicons/react/24/solid";
 
-import SkillCard from "../components/skill-card.jsx";
-
-// Mapeo de nombres de iconos a componentes reales
-const iconMap = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   RectangleGroupIcon: RectangleGroupIcon,
   CodeBracketIcon: CodeBracketIcon,
   BuildingLibraryIcon: BuildingLibraryIcon,
@@ -33,8 +32,8 @@ const iconMap = {
   EyeIcon: EyeIcon,
 };
 
-const Skills = () => {
-  const [skills, setSkills] = useState([]);
+const Skills: React.FC = () => {
+  const [skills, setSkills] = useState<Skill[]>([]);
 
   useEffect(() => {
     const fetchSkills = async () => {
@@ -45,10 +44,10 @@ const Skills = () => {
         }
         const data = await response.json();
 
-        // Reemplazar los nombres de iconos por sus componentes reales
-        const processedSkills = data.map(skill => ({
+        const processedSkills: Skill[] = data.map((skill: Partial<Skill>) => ({
           ...skill,
-          icon: iconMap[skill.icon] || EyeIcon, // Usa un icono por defecto si no se encuentra
+          icon:
+            iconMap[skill.icon as unknown as keyof typeof iconMap] || EyeIcon,
         }));
 
         setSkills(processedSkills);
@@ -61,20 +60,22 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="bg-white px-6 sm:px-12 py-16">
+    <section
+      id="skills"
+      className="bg-background text-foreground px-6 sm:px-12 py-8"
+    >
       <div className="container mx-auto text-center max-w-[1200px]">
-        <Typography variant="h2" color="blue-gray" className="mb-3">
-          Habilidades
-        </Typography>
         <Typography
-          variant="lead"
-          className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-6/12 mb-6">
-          Desarrollo software que convierte ideas en soluciones digitales prácticas y funcionales. Descubre cómo puedo aportar valor a tu proyecto.
+          variant="h2"
+          className="text-foreground mb-3"
+          {...({} as any)}
+        >
+          Experiencia
         </Typography>
       </div>
       <div className="container mx-auto grid grid-cols-1 gap-y-1 md:grid-cols-2 lg:grid-cols-3">
-        {skills.map((props, idx) => (
-          <SkillCard key={idx} {...props} />
+        {skills.map((skill: Skill, idx) => (
+          <SkillCard key={idx} {...skill} {...({} as any)} />
         ))}
       </div>
     </section>

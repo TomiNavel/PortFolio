@@ -2,7 +2,7 @@
 
 import { navigateToSection } from "@/app/utils/navigation";
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
+import ThemeToggle from "@/components/ThemeToggle";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -19,15 +19,21 @@ import {
   XMarkIcon,
   Bars3Icon,
 } from "@heroicons/react/24/solid";
+import type { NavItem as NavItemType } from "@/types/types";
 
-const NAV_MENU = [
+const NAV_MENU: NavItemType[] = [
   { name: "Inicio", icon: RectangleStackIcon, href: "#intro" },
-  { name: "Habilidades", icon: LightBulbIcon, href: "#skills" },
+  { name: "Experiencia", icon: LightBulbIcon, href: "#skills" },
   { name: "Proyectos", icon: FolderIcon, href: "#projects" },
   { name: "Contacto", icon: CommandLineIcon, href: "#contact" },
 ];
 
-function NavItem({ children, href }) {
+type NavItemProps = {
+  children: React.ReactNode;
+  href: string;
+};
+
+function NavItem({ children, href }: NavItemProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -35,10 +41,10 @@ function NavItem({ children, href }) {
     <li>
       <Typography
         as="span"
-        onClick={(e) => navigateToSection(e, href, pathname, router)}
         variant="paragraph"
-        color="gray"
-        className="flex items-center gap-2 font-medium text-gray-900 cursor-pointer"
+        onClick={(e) => navigateToSection(e, href, pathname, router)}
+        className="flex items-center gap-2 font-medium text-foreground cursor-pointer"
+        {...({} as any)}
       >
         {children}
       </Typography>
@@ -46,15 +52,8 @@ function NavItem({ children, href }) {
   );
 }
 
-NavItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  href: PropTypes.string,
-};
-
 export function Navbar() {
-  const [open, setOpen] = useState(false);
-
-  const handleOpen = () => setOpen((cur) => !cur);
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -65,14 +64,17 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar shadow={false} fullWidth className="border-0 sticky top-0 z-50">
+    <MTNavbar
+      shadow={false}
+      fullWidth
+      className="border-0 sticky top-0 z-50 bg-background text-foreground"
+      {...({} as any)}
+    >
       <div className="container mx-auto flex items-center justify-between">
-        {/* Izquierda: Logo */}
-        <Link href="/" className="text-lg font-bold text-blue-gray-900 hover:text-gray-700">
+        <Link href="/" className="text-lg font-bold hover:text-accent">
           TomiNavel
         </Link>
 
-        {/* Centro: Opciones principales */}
         <ul className="hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
@@ -82,12 +84,15 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Menú responsive en móviles */}
+        <div className="hidden lg:block">
+          <ThemeToggle />
+        </div>
+
         <IconButton
           variant="text"
-          color="gray"
-          onClick={handleOpen}
-          className="ml-auto inline-block lg:hidden"
+          onClick={() => setOpen((cur) => !cur)}
+          className="ml-auto inline-block lg:hidden text-foreground"
+          {...({} as any)}
         >
           {open ? (
             <XMarkIcon strokeWidth={2} className="h-6 w-6" />
@@ -97,7 +102,6 @@ export function Navbar() {
         </IconButton>
       </div>
 
-      {/* Menú desplegable en móviles */}
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
@@ -107,6 +111,9 @@ export function Navbar() {
                 {name}
               </NavItem>
             ))}
+            <div className="block lg:hidden px-4 pb-4">
+              <ThemeToggle />
+            </div>
           </ul>
         </div>
       </Collapse>

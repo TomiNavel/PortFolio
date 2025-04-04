@@ -2,31 +2,46 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { navigateToSection } from "@/app/utils/navigation";
+import type { NavItem } from "@/types/types";
 
-const Footer = () => {
+const year = new Date().getFullYear();
+
+const NAV_LINKS: NavItem[] = [
+  { name: "Inicio", href: "#intro", icon: () => null },
+  { name: "Experiencia", href: "#skills", icon: () => null },
+  { name: "Proyectos", href: "#projects", icon: () => null },
+  { name: "Contacto", href: "#contact", icon: () => null },
+];
+
+const Footer: React.FC = () => {
   const pathname = usePathname();
   const router = useRouter();
 
   return (
-    <footer className="bg-gray-800 text-white text-center p-6">
+    <footer className="bg-background text-foreground text-center p-6 border-t border-border">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-        <p className="text-sm">&copy; {new Date().getFullYear()} TomiNavel. Todos los derechos reservados.</p>
+        <p className="text-sm">
+          &copy; {year} TomiNavel. Todos los derechos reservados.
+        </p>
 
         <nav className="flex gap-4 mt-4 md:mt-0">
-          {["#intro", "#skills", "#projects", "#contact"].map((href) => (
+          {NAV_LINKS.map(({ name, href }) => (
             <a
               key={href}
               href={href}
               onClick={(e) => navigateToSection(e, href, pathname, router)}
               className="text-sm hover:text-gray-400 transition-colors"
             >
-              {href.replace("#", "")}
+              {name}
             </a>
           ))}
         </nav>
 
         <p className="text-sm mt-4 md:mt-0">
-          <a href="/terminos" className="underline hover:text-gray-400 transition-colors">
+          <a
+            href="/terminos"
+            className="underline hover:text-gray-400 transition-colors"
+          >
             Términos y condiciones
           </a>
         </p>

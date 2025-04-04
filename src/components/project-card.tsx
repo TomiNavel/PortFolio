@@ -1,8 +1,8 @@
 "use client";
 
-import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
+import type { ProjectCardProps } from "@/types/types";
 import {
   Card,
   CardHeader,
@@ -11,10 +11,14 @@ import {
   Button,
 } from "@material-tailwind/react";
 
-export function ProjectCard({ id, img, title, desc }) {
+export function ProjectCard({ id, img, title, desc }: ProjectCardProps) {
   return (
-    <Card color="transparent" shadow={false}>
-      <CardHeader floated={false} className="mx-0 mt-0 mb-6 h-48">
+    <Card color="transparent" shadow={false} {...({} as any)}>
+      <CardHeader
+        floated={false}
+        className="mx-0 mt-0 mb-6 h-48"
+        {...({} as any)}
+      >
         <Link href={`/proyectos/${id}`}>
           <Image
             src={img}
@@ -25,17 +29,20 @@ export function ProjectCard({ id, img, title, desc }) {
           />
         </Link>
       </CardHeader>
-      <CardBody className="p-0">
-        <Link href={`/proyectos/${id}`} className="text-blue-gray-900 transition-colors hover:text-gray-800">
-          <Typography variant="h5" className="mb-2">
+      <CardBody className="p-0" {...({} as any)}>
+        <Link
+          href={`/proyectos/${id}`}
+          className="text-foreground transition-colors hover:text-accent"
+        >
+          <Typography variant="h5" className="mb-2" {...({} as any)}>
             {title}
           </Typography>
         </Link>
-        <Typography className="mb-6 font-normal !text-gray-500">
+        <Typography className="mb-6 font-normal text-muted" {...({} as any)}>
           {desc}
         </Typography>
         <Link href={`/proyectos/${id}`}>
-          <Button color="gray" size="sm">
+          <Button color="gray" size="sm" {...({} as any)}>
             Detalles
           </Button>
         </Link>
@@ -43,12 +50,5 @@ export function ProjectCard({ id, img, title, desc }) {
     </Card>
   );
 }
-
-ProjectCard.propTypes = {
-  id: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-};
 
 export default ProjectCard;

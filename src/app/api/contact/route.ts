@@ -1,8 +1,11 @@
+import { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
+import type SMTPTransport from "nodemailer/lib/smtp-transport";
+import type { ContactFormData } from "@/types/types";
 
-export async function POST(req) {
+export async function POST(req: NextRequest) {
   try {
-    const { firstName, lastName, email, message } = await req.json();
+    const { firstName, lastName, email, message }: ContactFormData = await req.json();
 
     if (!firstName || !lastName || !email || !message) {
       return new Response(JSON.stringify({ error: "Todos los campos son obligatorios" }), { status: 400 });
@@ -11,18 +14,18 @@ export async function POST(req) {
     // Configurar el transporte con el SMTP de IONOS
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: false,
+      port: Number(process.env.SMTP_PORT),
+      secure: Number(process.env.SMTP_PORT) === 465,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-    });
+    } as SMTPTransport.Options);    
 
     // Opciones del correo
     const mailOptions = {
-      from: `"Contacto Portfolio" <hola@tominavel.com>`, // Quien envía el correo
-      to: "hola@tominavel.com", // TU CORREO donde recibirás los mensajes
+      from: `"Contacto Portfolio" <hola@tominavel.com>`,
+      to: "hola@tominavel.com",
       subject: "Nuevo mensaje de contacto",
       html: `
           <h2>Nuevo mensaje recibido</h2>

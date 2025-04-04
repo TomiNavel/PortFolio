@@ -3,11 +3,11 @@ export async function GET() {
         {
             id: "cuartoymita",
             titulo: "CuartoyMitá",
-            descripcion: "Una web que refleja la esencia de Cuarto y Mitá, combinando un diseño cálido y una navegación fluida para ofrecer una experiencia acogedora en cualquier dispositivo. Pensada para transmitir su autenticidad y facilitar el acceso a su oferta gastronómica.",
+            descripcion: "Sitio web que refleja la esencia de Cuarto y Mitá, combinando un diseño cálido y una navegación fluida para ofrecer una experiencia acogedora en cualquier dispositivo. Pensada para transmitir su autenticidad y accesible en cualquier dispositivo.",
             imagenDesktop: "/images/cuartoymita.png",
             imagenMobile: "/images/cuartoymita.png",
             tecnologias: {
-                lenguaje: ["JavaScript"],
+                lenguaje: ["TypeScript"],
                 ide: ["Visual Studio Code"],
                 framework: ["Next.js"],
                 entornoDesarrollo: ["Node.js"],
@@ -17,61 +17,7 @@ export async function GET() {
                 baseDatos: [],
                 despliegue: ["Docker", "VPS"],
                 orquestacion: [],
-                controlVersiones: ["Git", "GitLab"],
-                CI_CD: ["GitLab CI/CD"],
-                seguridad: ["Helmet.js", "CORS", "JWT"],
-                herramientasDev: ["ESLint", "Prettier", "Webpack", "Vite"],
-                testing: ["Jest", "React Testing Library"],
-                rendimiento: ["Lighthouse", "Bundle Analyzer"],
-                accesibilidad: ["WAVE", "axe-core"],
-                monitorizacion: []
-            },
-            caracteristicas: [
-                "Desarrollo basado en React con estructura de componentes reutilizables",
-                "Uso de una plantilla como base, adaptada y personalizada",
-                "Diseño responsive adaptable a todos los dispositivos",
-                "Optimización SEO para mayor visibilidad en Google",
-                "Carga rápida gracias a optimización de recursos",
-                "Gestión de estado y reactividad con React",
-                "Integración de eventos y animaciones para mejorar la experiencia de usuario",
-                "Código modular y estructurado para facilitar el mantenimiento",
-                "Uso de buenas prácticas en HTML, CSS y JavaScript para accesibilidad",
-                "Desplegado en un VPS con Docker"
-            ],
-            enlaces: {
-                demo: "https://www.cuartoymita.com",
-                repositorio: "https://github.com/usuario/cuartoymita",
-            },
-        },
-        {
-            id: "portfolio",
-            titulo: "Portfolio Profesional",
-            descripcion: "Un espacio donde presento mis proyectos de forma sencilla y directa, destacando cada desarrollo con un diseño limpio y accesible. Pensado para mostrar mi trabajo de manera profesional, sin distracciones y con una estructura clara.",
-            imagenDesktop: "/images/portfolio.png",
-            imagenMobile: "/images/portfolio.png",
-            caracteristicas: [
-                "Arquitectura basada en componentes reutilizables con React y Next.js",
-                "Gestión de rutas con el App Router de Next.js y la segmentación de archivos en /app",
-                "Interfaz dinámica con animaciones mediante Framer Motion",
-                "Diseño responsive utilizando utilidades de Tailwind CSS",
-                "Carga eficiente de imágenes y assets para optimización del rendimiento",
-                "Código modular y limpio con buenas prácticas de desarrollo",
-                "Uso de API en Next.js para obtener y gestionar la información de los proyectos",
-                "Uso de ESLint y Prettier para mantener la calidad del código",
-                "Despliegue automatizado en un VPS mediante Docker y GitLab CI/CD"
-            ],
-            tecnologias: {
-                lenguaje: ["JavaScript"],
-                ide: ["Visual Studio Code"],
-                framework: ["Next.js"],
-                entorno: ["Node.js"],
-                librerias: ["React", "Framer Motion"],
-                estilos: ["Tailwind CSS"],
-                api: ["Next.js API Routes"],
-                baseDatos: [],
-                despliegue: ["Docker", "VPS"],
-                orquestacion: ["Docker Compose"],
-                controlVersiones: ["Git", "GitLab"],
+                controlVersiones: ["Git"],
                 CI_CD: ["GitLab CI/CD"],
                 seguridad: [],
                 herramientasDev: ["ESLint", "Prettier"],
@@ -80,9 +26,16 @@ export async function GET() {
                 accesibilidad: [],
                 monitorizacion: []
             },
+            caracteristicas: [
+                "Interfaz moderna y responsive con React y Tailwind CSS.",
+                "Optimización SEO y carga rápida para mejor rendimiento.",
+                "Estructura modular con componentes reutilizables.",
+                "Desplegado con Docker en un VPS para mayor estabilidad.",
+                "Aplicación de buenas prácticas en accesibilidad y seguridad."
+            ],
             enlaces: {
-                demo: "https://www.tominavel.com",
-                repositorio: "https://github.com/usuario/tominavel"
+                demo: "https://www.cuartoymita.com",
+                repositorio: "https://github.com/TomiNavel/CuartoyMita"
             }
         },
         {
@@ -105,16 +58,16 @@ export async function GET() {
                 lenguajes: ["Python", "JavaScript"],
                 ide: ["PyCharm"],
                 framework: ["Django"],
-                entorno: ["WSGI", "Node.js"],
+                entorno: ["WSGI", "Gunicorn"],
                 librerias: ["Django ORM", "Jinja2", "jQuery"],
                 estilos: ["CSS"],
                 baseDatos: ["SQLite"],
                 despliegue: ["Docker", "VPS"],
                 orquestacion: [],
-                controlVersiones: ["Git", "GitLab"],
+                controlVersiones: ["Git"],
                 CI_CD: ["GitLab CI/CD"],
                 seguridad: ["Django Auth"],
-                herramientasDev: ["ESLint", "Prettier"],
+                herramientasDev: [],
                 testing: ["PyTest"],
                 rendimiento: [],
                 accesibilidad: [],
@@ -122,7 +75,7 @@ export async function GET() {
             },
             enlaces: {
                 demo: "http://scan.tominavel.com",
-                repositorio: "https://gitlab.com/usuario/scanreport"
+                repositorio: "https://github.com/TomiNavel/ScanReport"
             }
         },
         {
@@ -145,7 +98,7 @@ export async function GET() {
                 lenguajes: ["C#"],
                 ide: ["Visual Studio"],
                 framework: [".NET Core"],
-                entorno: ["Ubuntu Server", "Nginx"],
+                entorno: [".NET SDK"],
                 librerias: ["Entity Framework"],
                 estilos: ["Material Design"],
                 baseDatos: ["MySQL"],
@@ -162,7 +115,7 @@ export async function GET() {
             },
             enlaces: {
                 demo: "https://tominavel.com/downloads/PVC.rar",
-                repositorio: "https://gitlab.com/usuario/puntoventacloud"
+                repositorio: "https://github.com/TomiNavel/PuntoVentaCloud"
             }
         },
         {
@@ -202,10 +155,56 @@ export async function GET() {
             },
             enlaces: {
                 demo: "/downloads/pvcmovil.apk",
-                repositorio: "https://gitlab.com/usuario/pvc-movil"
+                repositorio: "https://github.com/TomiNavel/PuntoVentaCloud_Movil"
             }
         }
     ];
 
     return Response.json(proyectos);
 }
+
+
+/* 
+{
+    id: "portfolio",
+    titulo: "Portfolio Profesional",
+    descripcion: "Un espacio donde presento mis proyectos de forma sencilla y directa, destacando cada desarrollo con un diseño limpio y accesible. Pensado para mostrar mi trabajo de manera profesional, sin distracciones y con una estructura clara.",
+    imagenDesktop: "/images/portfolio.png",
+    imagenMobile: "/images/portfolio.png",
+    caracteristicas: [
+        "Arquitectura basada en componentes reutilizables con React y Next.js",
+        "Gestión de rutas con el App Router de Next.js y la segmentación de archivos en /app",
+        "Interfaz dinámica con animaciones mediante Framer Motion",
+        "Diseño responsive utilizando utilidades de Tailwind CSS",
+        "Carga eficiente de imágenes y assets para optimización del rendimiento",
+        "Código modular y limpio con buenas prácticas de desarrollo",
+        "Uso de API en Next.js para obtener y gestionar la información de los proyectos",
+        "Uso de ESLint y Prettier para mantener la calidad del código",
+        "Despliegue automatizado en un VPS mediante Docker y GitLab CI/CD"
+    ],
+    tecnologias: {
+        lenguaje: ["JavaScript"],
+        ide: ["Visual Studio Code"],
+        framework: ["Next.js"],
+        entorno: ["Node.js"],
+        librerias: ["React", "Framer Motion"],
+        estilos: ["Tailwind CSS"],
+        api: ["Next.js API Routes"],
+        baseDatos: [],
+        despliegue: ["Docker", "VPS"],
+        orquestacion: ["Docker Compose"],
+        controlVersiones: ["Git", "GitLab"],
+        CI_CD: ["GitLab CI/CD"],
+        seguridad: [],
+        herramientasDev: ["ESLint", "Prettier"],
+        testing: [],
+        rendimiento: [],
+        accesibilidad: [],
+        monitorizacion: []
+    },
+    enlaces: {
+        demo: "https://www.tominavel.com",
+        repositorio: "https://github.com/usuario/tominavel"
+    }
+},
+*/

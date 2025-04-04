@@ -2,6 +2,7 @@
 import withMT from "@material-tailwind/react/utils/withMT";
 
 export default withMT({
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",

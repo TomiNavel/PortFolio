@@ -6,3 +6,44 @@ html {
     scroll-behavior: smooth;
   }
   
+  /* Variables CSS para tema claro */
+  :root {
+    --background: #ffffff;
+    --background-gradient: linear-gradient(to right, #f3f4f6, #ffffff);
+    --foreground: #111111;
+  
+    --card: #f9f9f9;
+    --card-foreground: #111111;
+  
+    --muted: #6b7280;
+    --muted-foreground: #9ca3af;
+  
+    --accent: #2563eb;
+    --accent-foreground: #ffffff;
+  
+    --border: #e5e7eb;
+    --input: #f3f4f6;
+  
+    --radius: 0.5rem;
+  }
+
+/* Variables para tema oscuro */
+.dark {
+  --background: #111111;
+  --background-gradient: linear-gradient(to right, #1a1a1a, #111111);
+  --foreground: #f5f5f5;
+
+  --card: #1a1a1a;
+  --card-foreground: #f5f5f5;
+
+  --muted: #9ca3af;
+  --muted-foreground: #d1d5db;
+
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+
+  --border: #2d2d2d;
+  --input: #1f1f1f;
+
+  --radius: 0.5rem;
+}
