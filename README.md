@@ -14,11 +14,12 @@ Este es el repositorio del portfolio profesional de **TomiNavel**, donde se pres
 - **Estilos**: [Tailwind CSS](https://tailwindcss.com/) con variables de tema claro/oscuro personalizadas
 - **Animaciones**: [Framer Motion](https://www.framer.com/motion/)
 - **UI Components**: [Material Tailwind](https://www.material-tailwind.com/)
-- **Tipos**: TypeScript
+- **TypeScript**: Tipado estático en todo el proyecto
 - **Routing**: Segmentación con `/app` y rutas dinámicas
 - **API**: Endpoints locales en `/api/skills` y `/api/proyectos`
 - **Email**: Envío de formularios mediante API y `nodemailer`
-- **Deploy**: VPS con Docker, Nginx como proxy inverso
+- **Internacionalización**: Preparado para soportar **i18n** (español/inglés)
+- **Dark mode**: Activado automáticamente por sistema o manualmente
 - **SEO y rendimiento**: Imágenes optimizadas, carga eficiente y scroll suave
 - **Accesibilidad**: Diseño responsive, contrastes adaptados y navegación clara
 - **Seguridad**: Uso de HTTPS, sanitización de entradas y separación cliente-servidor
@@ -27,7 +28,7 @@ Este es el repositorio del portfolio profesional de **TomiNavel**, donde se pres
 
 ## Estructura del proyecto
 
-. ├── src │ ├── app │ │ ├── proyectos/[id] # Página de detalle de cada proyecto │ │ ├── api/ # Endpoints de habilidades y proyectos │ │ └── ... │ ├── components/ # Navbar, Footer, ProjectCard, SkillCard, etc. │ ├── types/ # Definiciones TypeScript │ └── public/ # Imágenes y assets
+src/ ├── app/ │ ├── proyectos/[id]/ # Página dinámica de proyectos │ ├── api/ # Rutas API (skills, proyectos, contacto) │ ├── layout.tsx # Layout base │ ├── page.tsx # Página principal ├── components/ # Navbar, Footer, SkillCard, etc. ├── types/ # Tipos globales TypeScript ├── public/ # Imágenes y archivos estáticos
 
 ---
 

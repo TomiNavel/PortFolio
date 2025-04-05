@@ -20,6 +20,10 @@ const FormInput: React.FC<FormInputProps> = ({
         value={value}
         onChange={onChange}
         containerProps={{ className: "!min-w-full" }}
+        className="!text-foreground !border-b border-border placeholder:text-muted-foreground focus:!border-accent"
+        labelProps={{
+          className: "!text-muted-foreground peer-focus:!text-accent",
+        }}
         {...({} as any)}
       />
       {error && <p className="text-red-500 text-sm mt-1">{error}</p>}

@@ -11,7 +11,7 @@ const ProjectLinks = ({ enlaces }: ProjectLinksProps): JSX.Element | null => {
 
   return (
     <section className="w-full py-10 px-6">
-      <h2 className="text-2xl font-bold text-center mb-6">
+      <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
         Enlaces Relacionados
       </h2>
       <div className="flex justify-center gap-4">
@@ -23,11 +23,7 @@ const ProjectLinks = ({ enlaces }: ProjectLinksProps): JSX.Element | null => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="px-6 py-3 rounded-lg text-lg font-medium transition hover:brightness-110"
-            style={{
-              backgroundColor: "var(--accent)",
-              color: "var(--accent-foreground)",
-            }}
+            className="bg-accent text-accent-foreground px-6 py-3 rounded-lg text-lg font-medium transition hover:brightness-110"
           >
             Demo
           </motion.a>
@@ -40,11 +36,7 @@ const ProjectLinks = ({ enlaces }: ProjectLinksProps): JSX.Element | null => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="px-6 py-3 rounded-lg text-lg font-medium transition hover:brightness-110"
-            style={{
-              backgroundColor: "var(--accent)",
-              color: "var(--accent-foreground)",
-            }}
+            className="bg-accent text-accent-foreground px-6 py-3 rounded-lg text-lg font-medium transition hover:brightness-110"
           >
             Código Fuente
           </motion.a>

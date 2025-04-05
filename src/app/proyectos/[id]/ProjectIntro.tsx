@@ -32,7 +32,7 @@ const ProjectIntro = ({
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1.2, ease: "easeOut", delay: 0.3 }}
-          className="text-lg text-muted mt-6"
+          className="text-lg text-muted-foreground mt-6"
         >
           {descripcion}
         </motion.p>

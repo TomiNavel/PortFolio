@@ -19,8 +19,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-background text-foreground text-center p-6 border-t border-border">
-      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between">
-        <p className="text-sm">
+      <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+        <p className="text-sm text-muted-foreground">
           &copy; {year} TomiNavel. Todos los derechos reservados.
         </p>
 
@@ -30,17 +30,17 @@ const Footer: React.FC = () => {
               key={href}
               href={href}
               onClick={(e) => navigateToSection(e, href, pathname, router)}
-              className="text-sm hover:text-gray-400 transition-colors"
+              className="text-sm hover:text-accent transition-colors"
             >
               {name}
             </a>
           ))}
         </nav>
 
-        <p className="text-sm mt-4 md:mt-0">
+        <p className="text-sm text-muted-foreground mt-4 md:mt-0">
           <a
             href="/terminos"
-            className="underline hover:text-gray-400 transition-colors"
+            className="underline hover:text-accent transition-colors"
           >
             Términos y condiciones
           </a>

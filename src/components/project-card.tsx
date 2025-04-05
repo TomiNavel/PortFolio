@@ -38,11 +38,18 @@ export function ProjectCard({ id, img, title, desc }: ProjectCardProps) {
             {title}
           </Typography>
         </Link>
-        <Typography className="mb-6 font-normal text-muted" {...({} as any)}>
+        <Typography
+          className="mb-6 font-normal text-muted-foreground"
+          {...({} as any)}
+        >
           {desc}
         </Typography>
         <Link href={`/proyectos/${id}`}>
-          <Button color="gray" size="sm" {...({} as any)}>
+          <Button
+            size="sm"
+            className="bg-accent text-accent-foreground hover:bg-accent/80 transition-colors"
+            {...({} as any)}
+          >
             Detalles
           </Button>
         </Link>

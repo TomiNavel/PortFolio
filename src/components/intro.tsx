@@ -14,15 +14,14 @@ const Intro: React.FC = () => {
         <div className="row-start-2 lg:row-auto text-center">
           <Typography
             variant="h1"
-            color="blue-gray"
-            className="mb-4 lg:text-5xl !leading-tight text-3xl"
+            className="mb-4 text-foreground lg:text-5xl !leading-tight text-3xl"
             {...({} as any)}
           >
             Portfolio de desarrollo software
           </Typography>
           <Typography
             variant="lead"
-            className="mb-4 !text-gray-500 md:pr-16 xl:pr-28"
+            className="mb-4 text-muted-foreground md:pr-16 xl:pr-28"
             {...({} as any)}
           >
             Cada proyecto en este portfolio refleja un enfoque profesional

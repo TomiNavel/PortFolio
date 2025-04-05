@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es2016",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "module": "commonjs",
+    "module": "esnext",
     "jsx": "preserve",
     "moduleResolution": "node",
     "strict": true,
@@ -24,7 +24,7 @@
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
-, "src/app/page.js"  ],
+    "**/*.tsx", 
+  ],
   "exclude": ["node_modules"]
 }

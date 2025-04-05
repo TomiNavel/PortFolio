@@ -12,7 +12,6 @@ import {
 } from "@material-tailwind/react";
 import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import FormInput from "@/components/FormInput";
-import { useSearchParams } from "next/navigation";
 
 export function ContactForm() {
   return (
@@ -23,8 +22,6 @@ export function ContactForm() {
 }
 
 function ContactFormContent() {
-  const searchParams = useSearchParams();
-  const defaultMessage = searchParams.get("mensaje") || "";
   const [errors, setErrors] = useState<
     Partial<Record<keyof FormState, string>>
   >({});
@@ -33,20 +30,8 @@ function ContactFormContent() {
     firstName: "",
     lastName: "",
     email: "",
-    message: defaultMessage,
+    message: "",
   });
-
-  useEffect(() => {
-    if (defaultMessage) {
-      setForm((prev) => ({ ...prev, message: defaultMessage }));
-      setTimeout(() => {
-        const contactSection = document.getElementById("contact");
-        if (contactSection) {
-          contactSection.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 300);
-    }
-  }, [defaultMessage]);
 
   const validateField = (name: keyof FormState, value: string): string => {
     if (!value.trim()) return "Este campo es obligatorio";
@@ -101,12 +86,7 @@ function ContactFormContent() {
   return (
     <section id="contact" className="px-8 py-8">
       <div className="container mx-auto mb-6 text-center">
-        <Typography
-          variant="h2"
-          color="blue-gray"
-          className="mb-4"
-          {...({} as any)}
-        >
+        <Typography variant="h2" className="mb-4" {...({} as any)}>
           Contacto
         </Typography>
       </div>
@@ -117,26 +97,19 @@ function ContactFormContent() {
       >
         <Card
           shadow={true}
-          className="max-w-4xl w-full mx-auto border border-border"
+          className="max-w-4xl w-full mx-auto border border-border bg-card text-card-foreground"
           {...({} as any)}
         >
           <CardBody
             className="grid grid-cols-1 lg:grid-cols-7 gap-10 px-6 lg:px-12"
             {...({} as any)}
           >
-            <div className="w-full col-span-3 rounded-lg h-full py-8 px-8 bg-foreground text-background text-center lg:text-left space-y-6">
-              <Typography
-                variant="h4"
-                className="text-muted text-2xl font-semibold"
-                {...({} as any)}
-              >
-                Información de contacto
-              </Typography>
-              <div className="flex items-center gap-4 justify-center lg:justify-start border-b border-white/20 pb-4">
-                <EnvelopeIcon className="h-7 w-7 min-w-[28px] text-muted transition-transform hover:scale-105 flex-shrink-0" />
+            <div className="w-full col-span-5 max-w-sm lg:max-w-full py-8 px-8 bg-panel text-panel-foreground text-center lg:text-left space-y-6">
+              <div className="flex items-center gap-4 justify-center lg:justify-start border-b border-white/20">
+                <EnvelopeIcon className="h-7 w-7 min-w-[28px] text-muted-foreground transition-transform hover:scale-105 flex-shrink-0" />
                 <Typography
                   variant="h6"
-                  className="text-muted text-lg font-medium break-words max-w-[80%] lg:max-w-full"
+                  className="text-muted-foreground text-lg font-medium break-words max-w-[80%] lg:max-w-full"
                   {...({} as any)}
                 >
                   hola@tominavel.com
@@ -145,7 +118,7 @@ function ContactFormContent() {
             </div>
             <motion.form
               onSubmit={handleSubmit}
-              className="col-span-4 space-y-6"
+              className="col-span-5 space-y-6"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -189,7 +162,7 @@ function ContactFormContent() {
               )}
               <Button
                 type="submit"
-                className="w-full md:w-fit hover:bg-gray-800 transition-colors"
+                className="w-full md:w-fit bg-accent text-accent-foreground hover:bg-accent/80 transition-colors"
                 {...({} as any)}
               >
                 Enviar

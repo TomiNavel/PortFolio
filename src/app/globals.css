@@ -15,10 +15,13 @@ html {
     --card: #f9f9f9;
     --card-foreground: #111111;
   
+    --panel: #f3f4f6;
+    --panel-foreground: #1f2937;
+
     --muted: #6b7280;
-    --muted-foreground: #9ca3af;
+    --muted-foreground: #4b5563;
   
-    --accent: #2563eb;
+    --accent: #3c56c4;
     --accent-foreground: #ffffff;
   
     --border: #e5e7eb;
@@ -36,10 +39,13 @@ html {
   --card: #1a1a1a;
   --card-foreground: #f5f5f5;
 
-  --muted: #9ca3af;
-  --muted-foreground: #d1d5db;
+  --panel: #1e1e1e;
+  --panel-foreground: #f3f4f6;
 
-  --accent: #3b82f6;
+  --muted: #9ca3af;
+  --muted-foreground: #a1a1aa;
+
+  --accent: #1e40af;
   --accent-foreground: #ffffff;
 
   --border: #2d2d2d;

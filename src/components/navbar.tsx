@@ -71,7 +71,10 @@ export function Navbar() {
       {...({} as any)}
     >
       <div className="container mx-auto flex items-center justify-between">
-        <Link href="/" className="text-lg font-bold hover:text-accent">
+        <Link
+          href="/"
+          className="text-lg font-bold hover:text-accent transition-colors"
+        >
           TomiNavel
         </Link>
 
@@ -103,7 +106,7 @@ export function Navbar() {
       </div>
 
       <Collapse open={open}>
-        <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
+        <div className="container mx-auto mt-3 border-t border-border px-2 pt-4">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ name, icon: Icon, href }) => (
               <NavItem key={name} href={href}>

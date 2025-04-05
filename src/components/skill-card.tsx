@@ -23,18 +23,20 @@ export function SkillCard({
         {...({} as any)}
       >
         <CardBody className="grid justify-center text-center" {...({} as any)}>
-          <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full text-muted">
+          <div className="mx-auto mb-6 grid h-12 w-12 place-items-center rounded-full text-muted-foreground">
             <Icon className="h-6 w-6" {...({} as any)} />
           </div>
           <Typography
             variant="h5"
-            color="blue-gray"
-            className="mb-2"
+            className="text-foreground mb-2"
             {...({} as any)}
           >
             {title}
           </Typography>
-          <Typography className="px-8 font-normal text-muted" {...({} as any)}>
+          <Typography
+            className="px-8 font-normal text-muted-foreground"
+            {...({} as any)}
+          >
             {description}
           </Typography>
         </CardBody>

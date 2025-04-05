@@ -65,11 +65,7 @@ const Skills: React.FC = () => {
       className="bg-background text-foreground px-6 sm:px-12 py-8"
     >
       <div className="container mx-auto text-center max-w-[1200px]">
-        <Typography
-          variant="h2"
-          className="text-foreground mb-3"
-          {...({} as any)}
-        >
+        <Typography variant="h2" className="mb-3" {...({} as any)}>
           Experiencia
         </Typography>
       </div>
