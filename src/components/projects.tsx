@@ -4,15 +4,19 @@ import { Typography } from "@material-tailwind/react";
 import ProjectCard from "@/components/project-card";
 import type { Project } from "@/types/types";
 import { useEffect, useState } from "react";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 
 export function Projects() {
   const [proyectos, setProyectos] = useState<Project[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { locale } = useLanguage();
+  const t = useTranslation("projects");
 
   useEffect(() => {
     const fetchProyectos = async () => {
       try {
-        const response = await fetch("/api/proyectos");
+        const response = await fetch(`/api/proyectos?lang=${locale}`);
         if (!response.ok) throw new Error("Error al obtener proyectos");
         const data = await response.json();
         setProyectos(data);
@@ -23,7 +27,7 @@ export function Projects() {
     };
 
     fetchProyectos();
-  }, []);
+  }, [locale]);
 
   if (error) return <p className="text-center text-red-500 text-xl">{error}</p>;
   if (!proyectos.length)
@@ -39,16 +43,14 @@ export function Projects() {
           className="text-foreground mb-4"
           {...({} as any)}
         >
-          Proyectos
+          {t("title")}
         </Typography>
         <Typography
           variant="lead"
           className="mx-auto w-full px-4 font-normal text-muted lg:w-6/12"
           {...({} as any)}
         >
-          Soluciones funcionales y optimizadas. Me centro en la arquitectura del
-          código, el rendimiento y la escalabilidad, buscando que cada
-          desarrollo sea sólido y fácil de mantener.
+          {t("description")}
         </Typography>
       </div>
       <div className="container mx-auto grid grid-cols-1 gap-x-10 gap-y-20 md:grid-cols-2 xl:grid-cols-4">

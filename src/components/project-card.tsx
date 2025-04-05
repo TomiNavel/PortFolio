@@ -3,6 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { ProjectCardProps } from "@/types/types";
+import { useTranslation } from "@/hooks/useTranslation";
+
 import {
   Card,
   CardHeader,
@@ -12,6 +14,8 @@ import {
 } from "@material-tailwind/react";
 
 export function ProjectCard({ id, img, title, desc }: ProjectCardProps) {
+  const t = useTranslation("projects");
+
   return (
     <Card color="transparent" shadow={false} {...({} as any)}>
       <CardHeader
@@ -50,7 +54,7 @@ export function ProjectCard({ id, img, title, desc }: ProjectCardProps) {
             className="bg-accent text-accent-foreground hover:bg-accent/80 transition-colors"
             {...({} as any)}
           >
-            Detalles
+            {t("details")}
           </Button>
         </Link>
       </CardBody>

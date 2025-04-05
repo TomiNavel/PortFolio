@@ -3,6 +3,8 @@
 import { navigateToSection } from "@/app/utils/navigation";
 import React, { useState, useEffect } from "react";
 import ThemeToggle from "@/components/ThemeToggle";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { useTranslation } from "@/hooks/useTranslation";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import {
@@ -22,10 +24,10 @@ import {
 import type { NavItem as NavItemType } from "@/types/types";
 
 const NAV_MENU: NavItemType[] = [
-  { name: "Inicio", icon: RectangleStackIcon, href: "#intro" },
-  { name: "Experiencia", icon: LightBulbIcon, href: "#skills" },
-  { name: "Proyectos", icon: FolderIcon, href: "#projects" },
-  { name: "Contacto", icon: CommandLineIcon, href: "#contact" },
+  { key: "home", icon: RectangleStackIcon, href: "#intro" },
+  { key: "experience", icon: LightBulbIcon, href: "#skills" },
+  { key: "projects", icon: FolderIcon, href: "#projects" },
+  { key: "contact", icon: CommandLineIcon, href: "#contact" },
 ];
 
 type NavItemProps = {
@@ -54,6 +56,7 @@ function NavItem({ children, href }: NavItemProps) {
 
 export function Navbar() {
   const [open, setOpen] = useState<boolean>(false);
+  const t = useTranslation("navbar");
 
   useEffect(() => {
     const handleResize = () => {
@@ -79,16 +82,17 @@ export function Navbar() {
         </Link>
 
         <ul className="hidden items-center gap-8 lg:flex">
-          {NAV_MENU.map(({ name, icon: Icon, href }) => (
-            <NavItem key={name} href={href}>
+          {NAV_MENU.map(({ key, icon: Icon, href }) => (
+            <NavItem key={key} href={href}>
               <Icon className="h-5 w-5" />
-              {name}
+              {t(key)}
             </NavItem>
           ))}
         </ul>
 
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
           <ThemeToggle />
+          <LanguageSwitcher />
         </div>
 
         <IconButton
@@ -108,16 +112,22 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-border px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon, href }) => (
-              <NavItem key={name} href={href}>
+            {NAV_MENU.map(({ key, icon: Icon, href }) => (
+              <NavItem key={key} href={href}>
                 <Icon className="h-5 w-5" />
-                {name}
+                {t(key)}
               </NavItem>
             ))}
-            <div className="block lg:hidden px-4 pb-4">
-              <ThemeToggle />
-            </div>
           </ul>
+
+          {/* Separador visual */}
+          <hr className="my-4 border-border" />
+
+          {/* Bloque de controles */}
+          <div className="flex justify-between items-center px-2 pb-4">
+            <ThemeToggle />
+            <LanguageSwitcher />
+          </div>
         </div>
       </Collapse>
     </MTNavbar>

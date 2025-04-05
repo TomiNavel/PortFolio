@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { Typography } from "@material-tailwind/react";
+import { useLanguage } from "@/context/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 import SkillCard from "@/components/skill-card";
 import type { Skill } from "@/types/types";
 import {
@@ -34,11 +36,13 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 const Skills: React.FC = () => {
   const [skills, setSkills] = useState<Skill[]>([]);
+  const { locale } = useLanguage();
+  const t = useTranslation("skills");
 
   useEffect(() => {
     const fetchSkills = async () => {
       try {
-        const response = await fetch("/api/skills");
+        const response = await fetch(`/api/skills?lang=${locale}`);
         if (!response.ok) {
           throw new Error("Error al obtener los datos de habilidades");
         }
@@ -57,7 +61,7 @@ const Skills: React.FC = () => {
     };
 
     fetchSkills();
-  }, []);
+  }, [locale]);
 
   return (
     <section
@@ -66,7 +70,7 @@ const Skills: React.FC = () => {
     >
       <div className="container mx-auto text-center max-w-[1200px]">
         <Typography variant="h2" className="mb-3" {...({} as any)}>
-          Experiencia
+          {t("title")}
         </Typography>
       </div>
       <div className="container mx-auto grid grid-cols-1 gap-y-1 md:grid-cols-2 lg:grid-cols-3">

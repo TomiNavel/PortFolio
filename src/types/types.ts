@@ -17,10 +17,10 @@ export type Project = {
   };
   
   export type NavItem = {
-    name: string;
+    key: 'home' | 'experience' | 'projects' | 'contact';
     href: string;
     icon: React.ComponentType<{ className?: string }>;
-  };
+  };  
 
   export type Skill = {
     title: string;

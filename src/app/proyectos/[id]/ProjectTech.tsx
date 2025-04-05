@@ -3,21 +3,22 @@
 import { motion } from "framer-motion";
 import { JSX } from "react";
 import type { Project } from "@/types/types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 type ProjectTechProps = Pick<Project, "tecnologias">;
 
 const ProjectTech = ({ tecnologias }: ProjectTechProps): JSX.Element | null => {
+  const t = useTranslation("project");
+
   if (!tecnologias || Object.keys(tecnologias).length === 0) return null;
 
-  // Unir todas las tecnologías de todas las categorías en un solo array plano
   const todasLasTechs = Object.values(tecnologias).flat();
-
   if (todasLasTechs.length === 0) return null;
 
   return (
     <section className="w-full py-10 px-6">
       <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
-        Tecnologías Utilizadas
+        {t("techTitle")}
       </h2>
       <div className="flex flex-wrap justify-center gap-4">
         {todasLasTechs.map((tech, index) => (

@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, Suspense } from "react";
 import { motion } from "framer-motion";
 import type { FormState } from "@/types/types";
+import { useTranslation } from "@/hooks/useTranslation";
 import {
   Typography,
   Card,
@@ -22,6 +23,7 @@ export function ContactForm() {
 }
 
 function ContactFormContent() {
+  const t = useTranslation("contact");
   const [errors, setErrors] = useState<
     Partial<Record<keyof FormState, string>>
   >({});
@@ -34,8 +36,9 @@ function ContactFormContent() {
   });
 
   const validateField = (name: keyof FormState, value: string): string => {
-    if (!value.trim()) return "Este campo es obligatorio";
-    if (name === "email" && !value.includes("@")) return "Correo inválido";
+    if (!value.trim()) return t("errors.required");
+    if (name === "email" && !value.includes("@"))
+      return t("errors.invalidEmail");
     return "";
   };
 
@@ -49,19 +52,18 @@ function ContactFormContent() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-      setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
-      setErrors((prev) => ({
-        ...prev,
-        [e.target.name]: validateField(
-          e.target.name as keyof FormState,
-          e.target.value
-        ),
-      }));
-    },
-    []
-  );
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors((prev) => ({
+      ...prev,
+      [e.target.name]: validateField(
+        e.target.name as keyof FormState,
+        e.target.value
+      ),
+    }));
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -87,7 +89,7 @@ function ContactFormContent() {
     <section id="contact" className="px-8 py-8">
       <div className="container mx-auto mb-6 text-center">
         <Typography variant="h2" className="mb-4" {...({} as any)}>
-          Contacto
+          {t("title")}
         </Typography>
       </div>
       <motion.div
@@ -124,31 +126,31 @@ function ContactFormContent() {
               transition={{ duration: 0.5, ease: "easeOut" }}
             >
               <FormInput
-                label="Nombre"
+                label={t("firstName.label")}
                 name="firstName"
                 value={form.firstName}
                 onChange={handleChange}
                 error={errors.firstName}
-                placeholder="Introduce tu nombre"
+                placeholder={t("firstName.placeholder")}
               />
               <FormInput
-                label="Apellido"
+                label={t("lastName.label")}
                 name="lastName"
                 value={form.lastName}
                 onChange={handleChange}
                 error={errors.lastName}
-                placeholder="Introduce tu apellido"
+                placeholder={t("lastName.placeholder")}
               />
               <FormInput
-                label="Correo electrónico"
+                label={t("email.label")}
                 name="email"
                 value={form.email}
                 onChange={handleChange}
                 error={errors.email}
-                placeholder="Introduce tu email"
+                placeholder={t("email.placeholder")}
               />
               <Textarea
-                label="Tu mensaje"
+                label={t("message.label")}
                 name="message"
                 value={form.message}
                 onChange={handleChange}
@@ -157,7 +159,7 @@ function ContactFormContent() {
               />
               {submitted && (
                 <motion.p className="bg-[var(--accent)] text-[var(--accent-foreground)] px-4 py-2 rounded-md text-center">
-                  ¡Mensaje enviado con éxito!
+                  {t("sent")}
                 </motion.p>
               )}
               <Button
@@ -165,7 +167,7 @@ function ContactFormContent() {
                 className="w-full md:w-fit bg-accent text-accent-foreground hover:bg-accent/80 transition-colors"
                 {...({} as any)}
               >
-                Enviar
+                {t("send")}
               </Button>
             </motion.form>
           </CardBody>

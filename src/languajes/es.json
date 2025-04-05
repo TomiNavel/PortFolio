@@ -1,0 +1,129 @@
+{
+    "intro": {
+      "title": "Portfolio de desarrollo software",
+      "subtitle": "Cada proyecto en este portfolio refleja un enfoque profesional orientado a resultados."
+    },
+    "navbar": {
+        "home": "Inicio",
+        "experience": "Experiencia",
+        "projects": "Proyectos",
+        "contact": "Contacto"
+      },
+    "skills": {
+        "title": "Experiencia"
+    },
+    "projects": {
+        "title": "Proyectos",
+        "description": "Soluciones funcionales y optimizadas. Me centro en la arquitectura del código, el rendimiento y la escalabilidad, buscando que cada desarrollo sea sólido y fácil de mantener.",
+        "details": "Detalles"
+    },
+    "contact": {
+        "title": "Contacto",
+        "firstName": {
+            "label": "Nombre",
+            "placeholder": "Introduce tu nombre"
+        },
+        "lastName": {
+            "label": "Apellido",
+            "placeholder": "Introduce tu apellido"
+        },
+        "email": {
+            "label": "Correo electrónico",
+            "placeholder": "Introduce tu email"
+        },
+        "message": {
+            "label": "Tu mensaje"
+        },
+        "send": "Enviar",
+        "sent": "¡Mensaje enviado con éxito!",
+        "errors": {
+            "required": "Este campo es obligatorio",
+            "invalidEmail": "Correo inválido"
+        }
+    },
+    "footer": {
+        "rights": "Todos los derechos reservados.",
+        "terms": "Términos y condiciones",
+        "nav": {
+            "home": "Inicio",
+            "experience": "Experiencia",
+            "projects": "Proyectos",
+            "contact": "Contacto"
+        }
+    },
+    "terms": {
+        "title": "Términos y Condiciones",
+        "intro": "Bienvenido a TomiNavel. Al acceder a este sitio web, aceptas los siguientes términos y condiciones.",
+        "sections": {
+            "intellectual": {
+                "title": "1. Propiedad intelectual",
+                "content": "Todo el contenido de este sitio, incluyendo textos, imágenes, código y otros elementos, es propiedad de TomiNavel, salvo que se indique lo contrario. No está permitido su uso sin autorización."
+            },
+            "usage": {
+                "title": "2. Uso del sitio",
+                "content": "El contenido de este portafolio es solo para fines informativos y demostrativos. No se garantiza la exactitud ni disponibilidad del mismo en todo momento."
+            },
+            "liability": {
+                "title": "3. Responsabilidad",
+                "content": "No nos hacemos responsables por el uso indebido del contenido de este sitio ni por daños derivados del acceso o uso de la información aquí contenida."
+            },
+            "cookies": {
+                "title": "4. Cookies y privacidad",
+                "content": "Este sitio puede utilizar cookies para mejorar la experiencia del usuario. Puedes gestionar las cookies en la configuración de tu navegador."
+            },
+            "modifications": {
+                "title": "5. Modificaciones",
+                "content": "Nos reservamos el derecho de modificar estos términos en cualquier momento. Las actualizaciones serán publicadas en esta página."
+            },
+            "contact": {
+                "title": "6. Contacto",
+                "content": "Si tienes preguntas sobre estos términos, puedes contactarnos a través de la sección de Contacto."
+            }
+        }     
+    },
+    "project": {
+        "techTitle": "Tecnologías Utilizadas",
+        "featuresTitle": "Características Principales del Proyecto",
+        "linksTitle": "Enlaces Relacionados",
+        "demo": "Demo",
+        "source": "Código Fuente"
+    },
+    "cookies": {
+        "message": "Usamos cookies para mejorar tu experiencia. Consulta nuestra",
+        "policy": "política de cookies",
+        "accept": "Aceptar"
+    },
+    "cookiesPage": {
+        "title": "Política de Cookies",
+        "intro": {
+            "part1": "En",
+            "part2": "utilizamos cookies para mejorar la experiencia del usuario. Al continuar navegando en nuestro sitio, aceptas el uso de cookies de acuerdo con esta política."
+        },
+        "section1": {
+            "title": "1. ¿Qué son las cookies?",
+            "content": "Las cookies son pequeños archivos de texto almacenados en tu dispositivo cuando visitas un sitio web. Permiten recordar preferencias, mejorar la navegación y recopilar estadísticas sobre el uso del sitio."
+        },
+        "section2": {
+            "title": "2. ¿Qué tipos de cookies usamos?",
+            "essentialTitle": "Cookies esenciales:",
+            "essentialText": "Necesarias para el funcionamiento básico del sitio.",
+            "analyticsTitle": "Cookies analíticas:",
+            "analyticsText": "Nos ayudan a entender cómo los usuarios interactúan con el sitio (Google Analytics, etc.).",
+            "functionalTitle": "Cookies de funcionalidad:",
+            "functionalText": "Guardan preferencias del usuario."
+        },
+        "section3": {
+            "title": "3. ¿Cómo gestionar las cookies?",
+            "content": "Puedes configurar tu navegador para aceptar, rechazar o eliminar cookies. A continuación, algunos enlaces útiles:"
+        },
+        "section4": {
+            "title": "4. Cambios en esta política",
+            "content": "Nos reservamos el derecho de actualizar esta política en cualquier momento."
+        }
+    }
+
+}
+
+  
+  
+  

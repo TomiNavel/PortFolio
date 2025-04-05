@@ -3,18 +3,21 @@
 import { motion } from "framer-motion";
 import { JSX } from "react";
 import type { Project } from "@/types/types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 type ProjectFeaturesProps = Pick<Project, "caracteristicas">;
 
 const ProjectFeatures = ({
   caracteristicas,
 }: ProjectFeaturesProps): JSX.Element | null => {
+  const t = useTranslation("project");
+
   if (!caracteristicas || caracteristicas.length === 0) return null;
 
   return (
     <section className="w-full py-10 px-6">
       <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
-        Características Principales del Proyecto
+        {t("featuresTitle")}
       </h2>
       <ul className="max-w-3xl mx-auto space-y-4">
         {caracteristicas.map((feature, index) => (

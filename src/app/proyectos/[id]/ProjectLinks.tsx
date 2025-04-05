@@ -3,16 +3,19 @@
 import { motion } from "framer-motion";
 import { JSX } from "react";
 import type { Project } from "@/types/types";
+import { useTranslation } from "@/hooks/useTranslation";
 
 type ProjectLinksProps = Pick<Project, "enlaces">;
 
 const ProjectLinks = ({ enlaces }: ProjectLinksProps): JSX.Element | null => {
+  const t = useTranslation("project");
+
   if (!enlaces) return null;
 
   return (
     <section className="w-full py-10 px-6">
       <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
-        Enlaces Relacionados
+        {t("linksTitle")}
       </h2>
       <div className="flex justify-center gap-4">
         {enlaces.demo && (
@@ -25,7 +28,7 @@ const ProjectLinks = ({ enlaces }: ProjectLinksProps): JSX.Element | null => {
             transition={{ duration: 0.5 }}
             className="bg-accent text-accent-foreground px-6 py-3 rounded-lg text-lg font-medium transition hover:brightness-110"
           >
-            Demo
+            {t("demo")}
           </motion.a>
         )}
         {enlaces.repositorio && (
@@ -38,7 +41,7 @@ const ProjectLinks = ({ enlaces }: ProjectLinksProps): JSX.Element | null => {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="bg-accent text-accent-foreground px-6 py-3 rounded-lg text-lg font-medium transition hover:brightness-110"
           >
-            Código Fuente
+            {t("source")}
           </motion.a>
         )}
       </div>

@@ -1,0 +1,126 @@
+{
+    "intro": {
+      "title": "Software Development Portfolio",
+      "subtitle": "Each project in this portfolio reflects a professional, results-oriented approach."
+    },
+    "navbar": {
+        "home": "Home",
+        "experience": "Experience",
+        "projects": "Projects",
+        "contact": "Contact"
+    },
+    "skills": {
+        "title": "Experience"
+    },
+    "projects": {
+        "title": "Projects",
+        "description": "Functional and optimized solutions. I focus on code architecture, performance, and scalability, aiming for solid and maintainable development.",
+        "details": "Details"
+    },
+    "contact": {
+        "title": "Contact",
+        "firstName": {
+            "label": "First Name",
+            "placeholder": "Enter your first name"
+        },
+        "lastName": {
+            "label": "Last Name",
+            "placeholder": "Enter your last name"
+        },
+        "email": {
+            "label": "Email",
+            "placeholder": "Enter your email"
+        },
+        "message": {
+            "label": "Your message"
+        },
+        "send": "Send",
+        "sent": "Message sent successfully!",
+        "errors": {
+            "required": "This field is required",
+            "invalidEmail": "Invalid email"
+        }
+    },
+    "footer": {
+        "rights": "All rights reserved.",
+        "terms": "Terms and conditions",
+        "nav": {
+            "home": "Home",
+            "experience": "Experience",
+            "projects": "Projects",
+            "contact": "Contact"
+        }
+    },
+    "terms": {
+        "title": "Terms and Conditions",
+        "intro": "Welcome to TomiNavel. By accessing this website, you agree to the following terms and conditions.",
+        "sections": {
+            "intellectual": {
+                "title": "1. Intellectual Property",
+                "content": "All content on this site, including text, images, code, and other elements, is the property of TomiNavel unless otherwise stated. Unauthorized use is not allowed."
+            },
+            "usage": {
+                "title": "2. Site Usage",
+                "content": "The content of this portfolio is for informational and demonstration purposes only. Accuracy or availability at all times is not guaranteed."
+            },
+            "liability": {
+                "title": "3. Liability",
+                "content": "We are not responsible for the misuse of the site's content or for any damages resulting from access or use of the information contained herein."
+            },
+            "cookies": {
+                "title": "4. Cookies and Privacy",
+                "content": "This site may use cookies to enhance user experience. You can manage cookies in your browser settings."
+            },
+            "modifications": {
+                "title": "5. Modifications",
+                "content": "We reserve the right to modify these terms at any time. Updates will be published on this page."
+            },
+            "contact": {
+                "title": "6. Contact",
+                "content": "If you have questions about these terms, you can contact us through the Contact section."
+            }
+        }     
+    },
+    "project": {
+        "techTitle": "Technologies Used",
+        "featuresTitle": "Main Project Features",
+        "linksTitle": "Related Links",
+        "demo": "Demo",
+        "source": "Source Code"
+    },
+    "cookies": {
+        "message": "We use cookies to enhance your experience. See our",
+        "policy": "cookie policy",
+        "accept": "Accept"
+    },
+    "cookiesPage": {
+        "title": "Cookies Policy",
+        "intro": {
+            "part1": "At",
+            "part2": "we use cookies to enhance user experience. By continuing to browse our site, you agree to the use of cookies according to this policy."
+        },
+        "section1": {
+            "title": "1. What are cookies?",
+            "content": "Cookies are small text files stored on your device when you visit a website. They allow the site to remember preferences, improve navigation, and gather statistics about usage."
+        },
+        "section2": {
+            "title": "2. What types of cookies do we use?",
+            "essentialTitle": "Essential cookies:",
+            "essentialText": "Required for the basic operation of the site.",
+            "analyticsTitle": "Analytics cookies:",
+            "analyticsText": "Help us understand how users interact with the site (Google Analytics, etc.).",
+            "functionalTitle": "Functionality cookies:",
+            "functionalText": "Store user preferences."
+        },
+        "section3": {
+            "title": "3. How to manage cookies?",
+            "content": "You can configure your browser to accept, reject, or delete cookies. Here are some useful links:"
+        },
+        "section4": {
+            "title": "4. Changes to this policy",
+            "content": "We reserve the right to update this policy at any time."
+        }
+    }
+
+}
+  

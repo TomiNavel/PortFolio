@@ -2,8 +2,11 @@
 
 import Image from "next/image";
 import { Typography } from "@material-tailwind/react";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Intro: React.FC = () => {
+  const t = useTranslation("intro");
+
   return (
     <header
       id="intro"
@@ -17,15 +20,14 @@ const Intro: React.FC = () => {
             className="mb-4 text-foreground lg:text-5xl !leading-tight text-3xl"
             {...({} as any)}
           >
-            Portfolio de desarrollo software
+            {t("title")}
           </Typography>
           <Typography
             variant="lead"
             className="mb-4 text-muted-foreground md:pr-16 xl:pr-28"
             {...({} as any)}
           >
-            Cada proyecto en este portfolio refleja un enfoque profesional
-            orientado a resultados.
+            {t("subtitle")}
           </Typography>
         </div>
         <Image
