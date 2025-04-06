@@ -10,7 +10,6 @@ const CookiesBanner: React.FC = () => {
   const t = useTranslation("cookies");
 
   useEffect(() => {
-    // Verificamos si ya existe la cookie
     const cookiesAccepted = Cookies.get("cookiesAccepted");
     if (!cookiesAccepted) {
       setShowBanner(true);

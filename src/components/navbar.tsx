@@ -33,9 +33,10 @@ const NAV_MENU: NavItemType[] = [
 type NavItemProps = {
   children: React.ReactNode;
   href: string;
+  onClick?: () => void;
 };
 
-function NavItem({ children, href }: NavItemProps) {
+function NavItem({ children, href, onClick }: NavItemProps) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -44,7 +45,10 @@ function NavItem({ children, href }: NavItemProps) {
       <Typography
         as="span"
         variant="paragraph"
-        onClick={(e) => navigateToSection(e, href, pathname, router)}
+        onClick={(e) => {
+          navigateToSection(e, href, pathname, router);
+          if (onClick) onClick();
+        }}
         className="flex items-center gap-2 font-medium text-foreground cursor-pointer"
         {...({} as any)}
       >
@@ -113,20 +117,22 @@ export function Navbar() {
         <div className="container mx-auto mt-3 border-t border-border px-2 pt-4">
           <ul className="flex flex-col gap-4">
             {NAV_MENU.map(({ key, icon: Icon, href }) => (
-              <NavItem key={key} href={href}>
+              <NavItem key={key} href={href} onClick={() => setOpen(false)}>
                 <Icon className="h-5 w-5" />
                 {t(key)}
               </NavItem>
             ))}
           </ul>
 
-          {/* Separador visual */}
           <hr className="my-4 border-border" />
 
-          {/* Bloque de controles */}
           <div className="flex justify-between items-center px-2 pb-4">
-            <ThemeToggle />
-            <LanguageSwitcher />
+            <div onClick={() => setOpen(false)}>
+              <ThemeToggle />
+            </div>
+            <div onClick={() => setOpen(false)}>
+              <LanguageSwitcher />
+            </div>
           </div>
         </div>
       </Collapse>
