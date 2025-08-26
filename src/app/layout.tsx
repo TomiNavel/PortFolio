@@ -5,6 +5,7 @@ import "@/app/globals.css";
 import CookiesBanner from "@/components/CookiesBanner";
 import { ThemeProvider } from "next-themes";
 import { LanguageProvider } from "@/context/LanguageContext";
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,20 +30,13 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="es" suppressHydrationWarning>
-      <head>
-        <script
-          async
-          defer
-          data-website-id="e67bea86-3428-4ef4-a4d1-5b35a0bacc57"
-          src="https://stats.tominavel.com/umami.js"
-        ></script>
-      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
         <LanguageProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
+            <Analytics />
             <CookiesBanner />
           </ThemeProvider>
         </LanguageProvider>
