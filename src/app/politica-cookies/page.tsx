@@ -13,7 +13,7 @@ export default function PoliticaCookies() {
       <div className="max-w-4xl mx-auto px-6 py-12 text-foreground">
         <h1 className="text-3xl font-bold mb-4">{t("title")}</h1>
         <p className="text-muted-foreground mb-4">
-          {t("intro.part1")} <strong>Cuarto y Mita</strong> {t("intro.part2")}
+          {t("intro")}
         </p>
 
         <h2 className="text-xl font-semibold mt-6 mb-2">

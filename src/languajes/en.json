@@ -95,10 +95,7 @@
     },
     "cookiesPage": {
         "title": "Cookies Policy",
-        "intro": {
-            "part1": "At",
-            "part2": "we use cookies to enhance user experience. By continuing to browse our site, you agree to the use of cookies according to this policy."
-        },
+        "intro": "We use cookies to enhance user experience. By continuing to browse our site, you agree to the use of cookies according to this policy.",
         "section1": {
             "title": "1. What are cookies?",
             "content": "Cookies are small text files stored on your device when you visit a website. They allow the site to remember preferences, improve navigation, and gather statistics about usage."

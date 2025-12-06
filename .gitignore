@@ -47,3 +47,10 @@ docker-compose.override.yml
 
 # VS Code
 .vscode/
+*.code-workspace
+
+# Claude Code
+CLAUDE.md
+
+# Documentation
+/Docs

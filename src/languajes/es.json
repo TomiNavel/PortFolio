@@ -95,10 +95,7 @@
     },
     "cookiesPage": {
         "title": "Política de Cookies",
-        "intro": {
-            "part1": "En",
-            "part2": "utilizamos cookies para mejorar la experiencia del usuario. Al continuar navegando en nuestro sitio, aceptas el uso de cookies de acuerdo con esta política."
-        },
+        "intro": "Utilizamos cookies para mejorar la experiencia del usuario. Al continuar navegando, aceptas el uso de cookies de acuerdo con esta política.",
         "section1": {
             "title": "1. ¿Qué son las cookies?",
             "content": "Las cookies son pequeños archivos de texto almacenados en tu dispositivo cuando visitas un sitio web. Permiten recordar preferencias, mejorar la navegación y recopilar estadísticas sobre el uso del sitio."
